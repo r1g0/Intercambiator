@@ -9,11 +9,11 @@
 import UIKit
 import MessageUI
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate{
+class SantaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate{
     
     @IBOutlet weak var pairsTableView: UITableView!
     var pairs:[Assignation] = []
-    static let SavedPairsKey = "SavedParisKey";
+    var savedPairsKey = ""
     var currentSending:Int = -1
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let pairs = NSUserDefaults.standardUserDefaults().objectForKey(ViewController.SavedPairsKey) as? NSData {
+        if let pairs = NSUserDefaults.standardUserDefaults().objectForKey(savedPairsKey) as? NSData {
             self.pairs = NSKeyedUnarchiver.unarchiveObjectWithData(pairs) as! [Assignation]
         }
         if (pairs.count==0){
@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         gs.append(g)
         self.pairs = SecretSanta(groups: gs).assignations
         let data = NSKeyedArchiver.archivedDataWithRootObject(self.pairs)
-        NSUserDefaults.standardUserDefaults().setObject(data, forKey: ViewController.SavedPairsKey)
+        NSUserDefaults.standardUserDefaults().setObject(data, forKey: savedPairsKey)
         pairsTableView.reloadData()
     }
     
@@ -105,7 +105,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             p.notified = true
             self.pairs[self.currentSending] = p
             let data = NSKeyedArchiver.archivedDataWithRootObject(self.pairs)
-            NSUserDefaults.standardUserDefaults().setObject(data, forKey: ViewController.SavedPairsKey)
+            NSUserDefaults.standardUserDefaults().setObject(data, forKey: savedPairsKey)
             break;
         default:
             break;

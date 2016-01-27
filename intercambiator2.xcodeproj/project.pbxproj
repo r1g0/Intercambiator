@@ -16,7 +16,8 @@
 		0F83B0651C2BAC5800CA539F /* SecretSanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F83B0641C2BAC5800CA539F /* SecretSanta.swift */; };
 		0FC144BB1C261078002147AE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC144B81C261078002147AE /* Group.swift */; };
 		0FC144BC1C261078002147AE /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC144B91C261078002147AE /* Participant.swift */; };
-		0FC144BD1C261078002147AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC144BA1C261078002147AE /* ViewController.swift */; };
+		0FC144BD1C261078002147AE /* SantaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC144BA1C261078002147AE /* SantaViewController.swift */; };
+		0FD991B21C588FC6006A7E1C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD991B11C588FC6006A7E1C /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +44,8 @@
 		0F83B0641C2BAC5800CA539F /* SecretSanta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretSanta.swift; sourceTree = "<group>"; };
 		0FC144B81C261078002147AE /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		0FC144B91C261078002147AE /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
-		0FC144BA1C261078002147AE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0FC144BA1C261078002147AE /* SantaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SantaViewController.swift; sourceTree = "<group>"; };
+		0FD991B11C588FC6006A7E1C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +111,10 @@
 			children = (
 				0FC144B81C261078002147AE /* Group.swift */,
 				0FC144B91C261078002147AE /* Participant.swift */,
-				0FC144BA1C261078002147AE /* ViewController.swift */,
+				0FC144BA1C261078002147AE /* SantaViewController.swift */,
 				0F83B0621C2BAC3500CA539F /* Assignation.swift */,
 				0F83B0641C2BAC5800CA539F /* SecretSanta.swift */,
+				0FD991B11C588FC6006A7E1C /* ListViewController.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -220,10 +223,11 @@
 			files = (
 				0F6EEC331C24F0D600206181 /* AppDelegate.swift in Sources */,
 				0FC144BB1C261078002147AE /* Group.swift in Sources */,
-				0FC144BD1C261078002147AE /* ViewController.swift in Sources */,
+				0FC144BD1C261078002147AE /* SantaViewController.swift in Sources */,
 				0F83B0651C2BAC5800CA539F /* SecretSanta.swift in Sources */,
 				0F83B0631C2BAC3500CA539F /* Assignation.swift in Sources */,
 				0FC144BC1C261078002147AE /* Participant.swift in Sources */,
+				0FD991B21C588FC6006A7E1C /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
