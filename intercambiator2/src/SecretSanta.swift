@@ -8,14 +8,26 @@
 
 import Foundation
 
-class SecretSanta {
+class SecretSanta : NSCoder{
     
+    var name : String
     private var remainingGroups : [Group]
     private var _assignations : [Assignation]?
     
-    init(groups : [Group]) {
+    init(name: String, groups : [Group]) {
         // Make a copy of the group list:
+        self.name = name
         self.remainingGroups = groups.map { Group(name: $0.name, participants: $0.participants) }
+    }
+    
+    init(name: String) {
+        // Make a copy of the group list:
+        self.name = name
+        self.remainingGroups = []
+    }
+    
+    func addGroup(g:Group){
+        self.remainingGroups.append(g)
     }
     
     func sortGroups() {
@@ -80,5 +92,26 @@ class SecretSanta {
         
 
         return shuffledParticipants
+    }
+    
+    // MARK: NSCoding
+    
+    required convenience init?(coder decoder: NSCoder) {
+        guard let name = decoder.decodeObjectForKey("name") as? String,
+            let remainingGroups = decoder.decodeObjectForKey("remainingGroups") as? [Group],
+            let assignations = decoder.decodeObjectForKey("assignations") as? [Assignation]
+            else { return nil }
+        
+        self.init(
+            name: name,
+            groups: remainingGroups
+        )
+        _assignations = assignations
+    }
+    
+    func encodeWithCoder(coder: NSCoder) {
+        coder.encodeObject(self.name, forKey: "name")
+        coder.encodeObject(self.remainingGroups, forKey: "remainingGroups")
+        coder.encodeObject(_assignations, forKey: "assignations")
     }
 }

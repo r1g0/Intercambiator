@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class SantaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate{
+class SantaViewController: UIViewController, MFMessageComposeViewControllerDelegate{
     
     @IBOutlet weak var pairsTableView: UITableView!
     var pairs:[Assignation] = []
@@ -53,11 +53,37 @@ class SantaViewController: UIViewController, UITableViewDataSource, UITableViewD
             Participant(name:"r3",contact:"234-234"),
             Participant(name:"r4",contact:"345-345")])
         gs.append(g)
-        self.pairs = SecretSanta(groups: gs).assignations
+        self.pairs = SecretSanta(name:"🎅🏽" ,groups: gs).assignations
         let data = NSKeyedArchiver.archivedDataWithRootObject(self.pairs)
         NSUserDefaults.standardUserDefaults().setObject(data, forKey: savedPairsKey)
         pairsTableView.reloadData()
     }
+    
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        switch (result) {
+        case MessageComposeResultCancelled:
+            print("Cancelled")
+            break;
+        case MessageComposeResultFailed:
+            print("fail")
+            break;
+        case MessageComposeResultSent:
+            let p = pairs[self.currentSending]
+            p.notified = true
+            self.pairs[self.currentSending] = p
+            let data = NSKeyedArchiver.archivedDataWithRootObject(self.pairs)
+            NSUserDefaults.standardUserDefaults().setObject(data, forKey: savedPairsKey)
+            break;
+        default:
+            break;
+        }
+        self.currentSending = -1
+        self.dismissViewControllerAnimated(true, completion: {self.pairsTableView.reloadData()})
+    }
+}
+
+
+extension SantaViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pairs.count
@@ -91,27 +117,5 @@ class SantaViewController: UIViewController, UITableViewDataSource, UITableViewD
             print("It cant send text")
         }
     }
-    
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        switch (result) {
-        case MessageComposeResultCancelled:
-            print("Cancelled")
-            break;
-        case MessageComposeResultFailed:
-            print("fail")
-            break;
-        case MessageComposeResultSent:
-            let p = pairs[self.currentSending]
-            p.notified = true
-            self.pairs[self.currentSending] = p
-            let data = NSKeyedArchiver.archivedDataWithRootObject(self.pairs)
-            NSUserDefaults.standardUserDefaults().setObject(data, forKey: savedPairsKey)
-            break;
-        default:
-            break;
-        }
-        self.currentSending = -1
-        self.dismissViewControllerAnimated(true, completion: {self.pairsTableView.reloadData()})
-    }
-}
 
+}

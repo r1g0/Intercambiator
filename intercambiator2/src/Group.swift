@@ -9,12 +9,16 @@
 import Foundation
 
 
-class Group {
-    static var counter = 0
+class Group : NSCoder {
     var participants:[Participant]=[]
     var name:String
+    
     init( name:String, participants:[Participant]){
         self.participants=participants
+        self.name = name
+    }
+    
+    init( name:String){
         self.name = name
     }
     
@@ -30,13 +34,33 @@ class Group {
         participants = participants.filter() { $0.name != p.name }
         return originalIndex != participants.count
     }
+    
+    func addParticipant(p:Participant){
+        self.participants.append(p);
+        self.participants = self.participants.sort { $0.name < $1.name }
+    }
+    
+    // MARK: NSCoding
+    
+    required convenience init?(coder decoder: NSCoder) {
+        guard let name = decoder.decodeObjectForKey("name") as? String,
+            let participants = decoder.decodeObjectForKey("participants") as? [Participant]
+            else { return nil }
+        
+        self.init(
+            name: name,
+            participants: participants
+        )
+    }
+    
+    func encodeWithCoder(coder: NSCoder) {
+        coder.encodeObject(self.name, forKey: "name")
+        coder.encodeObject(self.participants, forKey: "participants")
+    }
+    
+    override var description:String {return name}
 }
 
-extension Group : Equatable { }
-func ==(lhs : Group, rhs : Group) -> Bool {
+func == (lhs : Group, rhs : Group) -> Bool {
     return lhs === rhs
-}
-
-extension Group: CustomStringConvertible {
-    var description:String {return name}
 }

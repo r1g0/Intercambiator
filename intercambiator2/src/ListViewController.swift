@@ -10,10 +10,11 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    static let SavedSantaKey = "SavedSantaKey";
+    static let SavedSantaKey = "SavedSantaKey2";
     
+    @IBOutlet weak var santaField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    var santas:[String] = []
+    var santas:[SecretSanta] = []
     var selectedSanta:String = ""
     
     override func viewDidLoad() {
@@ -23,12 +24,41 @@ class ListViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let santas = NSUserDefaults.standardUserDefaults().objectForKey(ListViewController.SavedSantaKey) as? NSData {
-            self.santas = NSKeyedUnarchiver.unarchiveObjectWithData(santas) as! [String]
-        }
+        reloadSantas()
         print(santas)
     }
     
+    func reloadSantas(){
+        if let santasData = NSUserDefaults.standardUserDefaults().objectForKey(ListViewController.SavedSantaKey) as? NSData {
+            self.santas = NSKeyedUnarchiver.unarchiveObjectWithData(santasData) as! [SecretSanta]
+        }
+        tableView.reloadData()
+    }
+    
+    @IBAction func createList(sender: UIButton) {
+        if let newSantaName = santaField.text {
+            if newSantaName != "" {
+                let defaults = NSUserDefaults.standardUserDefaults()
+                self.santas.append(SecretSanta(name: newSantaName));
+                let data = NSKeyedArchiver.archivedDataWithRootObject(self.santas)
+                defaults.setObject(data, forKey: newSantaName)
+                defaults.synchronize()
+                reloadSantas()
+            }else{
+                let animation = CABasicAnimation(keyPath: "position")
+                animation.duration = 0.07
+                animation.repeatCount = 4
+                animation.autoreverses = true
+                animation.fromValue = NSValue(CGPoint: CGPointMake(santaField.center.x - 10, santaField.center.y))
+                animation.toValue = NSValue(CGPoint: CGPointMake(santaField.center.x + 10, santaField.center.y))
+                santaField.layer.addAnimation(animation, forKey: "position")
+            }
+        }
+    }
+}
+
+
+extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return santas.count
     }
@@ -38,9 +68,9 @@ class ListViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("santacell")! as UITableViewCell
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("santa cell")! as UITableViewCell
         let santa = santas[indexPath.row]
-        cell.textLabel?.text = santa
+        cell.textLabel?.text = santa.name
         return cell
     }
     
@@ -54,8 +84,4 @@ class ListViewController: UIViewController {
             dv.savedPairsKey = selectedSanta
         }
     }
-}
-
-extension ListViewController : UITableViewDataSource, UITableViewDelegate {
-    
 }
