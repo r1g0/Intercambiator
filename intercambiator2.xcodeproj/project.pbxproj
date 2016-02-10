@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F328FEE1C6AFF80007F8426 /* EditParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F328FEC1C6AFF7F007F8426 /* EditParticipantViewController.swift */; };
+		0F328FEF1C6AFF80007F8426 /* EditParticipantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F328FED1C6AFF7F007F8426 /* EditParticipantViewController.xib */; };
 		0F6EEC331C24F0D600206181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EEC321C24F0D600206181 /* AppDelegate.swift */; };
 		0F6EEC381C24F0D600206181 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F6EEC361C24F0D600206181 /* Main.storyboard */; };
 		0F6EEC3A1C24F0D600206181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6EEC391C24F0D600206181 /* Assets.xcassets */; };
@@ -18,6 +20,7 @@
 		0FC144BC1C261078002147AE /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC144B91C261078002147AE /* Participant.swift */; };
 		0FC144BD1C261078002147AE /* SantaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC144BA1C261078002147AE /* SantaViewController.swift */; };
 		0FD991B21C588FC6006A7E1C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD991B11C588FC6006A7E1C /* ListViewController.swift */; };
+		9A8B75194D3E472EBC9F7B2E /* libPods-intercambiator2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF07A2600B27C32E33DBDAF /* libPods-intercambiator2.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F02563F1C6AF1B600A5FD85 /* intercambiator2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "intercambiator2-Bridging-Header.h"; sourceTree = "<group>"; };
+		0F328FEC1C6AFF7F007F8426 /* EditParticipantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditParticipantViewController.swift; path = views/EditParticipantViewController.swift; sourceTree = "<group>"; };
+		0F328FED1C6AFF7F007F8426 /* EditParticipantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditParticipantViewController.xib; path = views/EditParticipantViewController.xib; sourceTree = "<group>"; };
 		0F6EEC2F1C24F0D600206181 /* intercambiator2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intercambiator2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6EEC321C24F0D600206181 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F6EEC371C24F0D600206181 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +52,9 @@
 		0FC144B91C261078002147AE /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		0FC144BA1C261078002147AE /* SantaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SantaViewController.swift; sourceTree = "<group>"; };
 		0FD991B11C588FC6006A7E1C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		5FF07A2600B27C32E33DBDAF /* libPods-intercambiator2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-intercambiator2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF72F43A278E7BC5525F649 /* Pods-intercambiator2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intercambiator2.release.xcconfig"; path = "Pods/Target Support Files/Pods-intercambiator2/Pods-intercambiator2.release.xcconfig"; sourceTree = "<group>"; };
+		E50E82A39F4CED1B4D5D9A2D /* Pods-intercambiator2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intercambiator2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-intercambiator2/Pods-intercambiator2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8B75194D3E472EBC9F7B2E /* libPods-intercambiator2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F328FE91C6AFD17007F8426 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				0F328FEC1C6AFF7F007F8426 /* EditParticipantViewController.swift */,
+				0F328FED1C6AFF7F007F8426 /* EditParticipantViewController.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		0F6EEC261C24F0D600206181 = {
 			isa = PBXGroup;
 			children = (
 				0F6EEC311C24F0D600206181 /* intercambiator2 */,
 				0F6EEC461C24F0D600206181 /* intercambiator2Tests */,
 				0F6EEC301C24F0D600206181 /* Products */,
+				25A7DFB71955C3905FEFEF25 /* Pods */,
+				FBDC019625364A8566970BEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +108,7 @@
 		0F6EEC311C24F0D600206181 /* intercambiator2 */ = {
 			isa = PBXGroup;
 			children = (
+				0F328FE91C6AFD17007F8426 /* views */,
 				0FC144B71C261078002147AE /* src */,
 				0F6EEC321C24F0D600206181 /* AppDelegate.swift */,
 				0F6EEC391C24F0D600206181 /* Assets.xcassets */,
@@ -115,8 +137,26 @@
 				0F83B0621C2BAC3500CA539F /* Assignation.swift */,
 				0F83B0641C2BAC5800CA539F /* SecretSanta.swift */,
 				0FD991B11C588FC6006A7E1C /* ListViewController.swift */,
+				0F02563F1C6AF1B600A5FD85 /* intercambiator2-Bridging-Header.h */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		25A7DFB71955C3905FEFEF25 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E50E82A39F4CED1B4D5D9A2D /* Pods-intercambiator2.debug.xcconfig */,
+				CEF72F43A278E7BC5525F649 /* Pods-intercambiator2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FBDC019625364A8566970BEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FF07A2600B27C32E33DBDAF /* libPods-intercambiator2.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,9 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F6EEC4C1C24F0D600206181 /* Build configuration list for PBXNativeTarget "intercambiator2" */;
 			buildPhases = (
+				68430CC5190E75FA4CFA363A /* Check Pods Manifest.lock */,
 				0F6EEC2B1C24F0D600206181 /* Sources */,
 				0F6EEC2C1C24F0D600206181 /* Frameworks */,
 				0F6EEC2D1C24F0D600206181 /* Resources */,
+				5BD8E7A49AA080F8C14AA137 /* Embed Pods Frameworks */,
+				D5820F54D14C9C195EAD6DEE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,7 +206,7 @@
 		0F6EEC271C24F0D600206181 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Rigo Pinto";
 				TargetAttributes = {
@@ -202,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F6EEC3D1C24F0D600206181 /* LaunchScreen.storyboard in Resources */,
+				0F328FEF1C6AFF80007F8426 /* EditParticipantViewController.xib in Resources */,
 				0F6EEC3A1C24F0D600206181 /* Assets.xcassets in Resources */,
 				0F6EEC381C24F0D600206181 /* Main.storyboard in Resources */,
 			);
@@ -216,6 +260,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5BD8E7A49AA080F8C14AA137 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-intercambiator2/Pods-intercambiator2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68430CC5190E75FA4CFA363A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D5820F54D14C9C195EAD6DEE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-intercambiator2/Pods-intercambiator2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0F6EEC2B1C24F0D600206181 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -223,6 +315,7 @@
 			files = (
 				0F6EEC331C24F0D600206181 /* AppDelegate.swift in Sources */,
 				0FC144BB1C261078002147AE /* Group.swift in Sources */,
+				0F328FEE1C6AFF80007F8426 /* EditParticipantViewController.swift in Sources */,
 				0FC144BD1C261078002147AE /* SantaViewController.swift in Sources */,
 				0F83B0651C2BAC5800CA539F /* SecretSanta.swift in Sources */,
 				0F83B0631C2BAC3500CA539F /* Assignation.swift in Sources */,
@@ -352,25 +445,32 @@
 		};
 		0F6EEC4D1C24F0D600206181 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E50E82A39F4CED1B4D5D9A2D /* Pods-intercambiator2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = intercambiator2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rrr.intercambiator2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "intercambiator2/src/intercambiator2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		0F6EEC4E1C24F0D600206181 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEF72F43A278E7BC5525F649 /* Pods-intercambiator2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = intercambiator2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rrr.intercambiator2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "intercambiator2/src/intercambiator2-Bridging-Header.h";
 			};
 			name = Release;
 		};

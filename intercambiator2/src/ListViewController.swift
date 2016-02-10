@@ -39,7 +39,7 @@ class ListViewController: UIViewController {
         if let newSantaName = santaField.text {
             if newSantaName != "" {
                 let defaults = NSUserDefaults.standardUserDefaults()
-                self.santas.append(SecretSanta(name: newSantaName));
+                self.santas.insert(SecretSanta(name: newSantaName), atIndex: 0)
                 let data = NSKeyedArchiver.archivedDataWithRootObject(self.santas)
                 defaults.setObject(data, forKey: newSantaName)
                 defaults.synchronize()

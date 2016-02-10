@@ -11,6 +11,7 @@ import MessageUI
 
 class SantaViewController: UIViewController, MFMessageComposeViewControllerDelegate{
     
+    @IBOutlet weak var priceField: JDFCurrencyTextField!
     @IBOutlet weak var pairsTableView: UITableView!
     var pairs:[Assignation] = []
     var savedPairsKey = ""
@@ -30,6 +31,7 @@ class SantaViewController: UIViewController, MFMessageComposeViewControllerDeleg
             doTheShuffle()
         }
         print(pairs)
+        title = savedPairsKey
     }
     
     func doTheShuffle(){
@@ -103,19 +105,36 @@ extension SantaViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let pair = pairs[indexPath.row]
-        if(MFMessageComposeViewController.canSendText())
-        {
-            let messageController = MFMessageComposeViewController()
-            messageController.messageComposeDelegate = self;
-            messageController.recipients = [pair.giver.contact];
-            messageController.body = "SECRET SANTA MESSAGE \(pair.giver.name) 2016: You have to give a present to \(pair.receiver.name).  See you the 5th of November!";
-            self.currentSending = indexPath.row;
-            
-            // Present message view controller on screen
-            presentViewController(messageController, animated:true, completion: nil)
-        }else{
-            print("It cant send text")
-        }
+        //This is an example.
+        let lgVC = UIViewController(nibName: "EditParticipantViewController", bundle: nil)
+        
+        //This is the nav controller
+        let semiModal = LGSemiModalNavViewController(rootViewController: lgVC)
+        //Make sure to set a height on the view controller here.
+        semiModal.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 400)
+        
+        //Selected customization properties, see more in the header of the LGSemiModalNavViewController
+        semiModal.title = pair.giver.name
+        semiModal.backgroundShadeColor = UIColor.blackColor()
+        semiModal.animationSpeed = 0.35
+        semiModal.tapDismissEnabled = true
+        semiModal.backgroundShadeAlpha = 0.4
+        semiModal.scaleTransform = CGAffineTransformMakeScale(0.94, 0.94)
+        
+        self.presentViewController(semiModal, animated: true, completion: nil)
+//        if(MFMessageComposeViewController.canSendText())
+//        {
+//            let messageController = MFMessageComposeViewController()
+//            messageController.messageComposeDelegate = self;
+//            messageController.recipients = [pair.giver.contact];
+//            messageController.body = "SECRET SANTA MESSAGE \(pair.giver.name) 2016: You have to give a present to \(pair.receiver.name).  See you the 5th of November!";
+//            self.currentSending = indexPath.row;
+//            
+//            // Present message view controller on screen
+//            presentViewController(messageController, animated:true, completion: nil)
+//        }else{
+//            print("It cant send text")
+//        }
     }
 
 }
